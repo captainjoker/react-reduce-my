@@ -1,15 +1,19 @@
-import React, {Component} from 'react';
+import 'babel-polyfill';
+import React from 'react';
 import { render } from 'react-dom';
+import store from './configureStore';
+import { Provider } from 'react-redux';
+import { Router,browserHistory,hashHistory } from 'react-router';
+import routes from './routes';
 
-class App extends Component{
-    render(){
-        return(
-            <div>react测试中12345678</div>
-        )
-    }
-}
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 
 render(
-    <App/>,
+    <Provider store={store}>
+        <Router routes={routes} history={hashHistory}/>
+    </Provider>
+    ,
     document.getElementById('root')
-);
+);i
