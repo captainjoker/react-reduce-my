@@ -8,7 +8,8 @@ class App extends Component{
     }
 }
 
-export default connect(state=>{
-    return state.log;
-})(App)
-
+// export default connect(state=>{
+//     const {login,profile} = state;
+//     return {login,profile}
+// })(App)
+export default App;

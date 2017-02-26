@@ -16,4 +16,4 @@ render(
     </Provider>
     ,
     document.getElementById('root')
-);i
+);
