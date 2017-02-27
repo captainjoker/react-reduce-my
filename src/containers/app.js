@@ -1,6 +1,6 @@
-import React , {Component} from 'react';
-import { connect } from 'redux';
-class App extends Component{
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+class App extends Component {
     render() {
         return (
             <div>react测试中12345678</div>
@@ -8,8 +8,10 @@ class App extends Component{
     }
 }
 
-// export default connect(state=>{
-//     const {login,profile} = state;
-//     return {login,profile}
-// })(App)
-export default App;
+function mapStateToProps(state) {
+    const {login} = state;
+    return {login}
+}
+
+export default connect(mapStateToProps)(App)
+// export default App;
