@@ -26,15 +26,15 @@ module.exports = {
             },
             {
                 test:/\.scss$/,
-                loader: 'style!css?modules!postcss!sass'
+                loader: 'style-loader!css-loader?modules!sass-loader'
             },
             {
                 test: /\.css$/,
-                loader: 'style!css'//添加对样式表的处理
+                loader: 'style-loader!css-loader'//添加对样式表的处理
             },
             {
                 test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-                loader: 'url?limit=50000&name=[path][name].[ext]'
+                loader: 'url-loader?limit=50000&name=[path][name].[ext]'
             }
         ]
     },
