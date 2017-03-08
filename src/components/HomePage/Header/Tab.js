@@ -7,10 +7,8 @@ class Tab extends Component {
     }
 
     render() {
-        console.log(this.props.tab)
-
         return (
-            <li className="" value={this.props.tab.filter}>
+            <li className={styles.titleli + " "+ (this.props.tab.filter==this.props.select ? styles.selected:"")} filter={this.props.tab.filter}>
                 {this.props.tab.title}
             </li>
         )

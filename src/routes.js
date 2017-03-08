@@ -6,6 +6,7 @@ import HomePage from './containers/HomePage';
 const routes = (
     <Route path='/' component={App}>
         <IndexRoute component={HomePage}></IndexRoute>
+        <Route path="topic/:id" component={HomePage}></Route>
     </Route>
 );
 

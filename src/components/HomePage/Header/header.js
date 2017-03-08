@@ -5,22 +5,27 @@ import styles from './style.scss';
 class Header extends Component {
     constructor(props) {
         super(props);
+        this.state ={
+            select : 'all'
+        };
+    }
+
+    handlerChange(e){
+        this.setState({select:e.target.getAttribute('filter')});
+        this.props.onClick && this.props.onClick(e.target.getAttribute('filter'));
     }
 
     render() {
-        console.log(this.props.tabs);
         return (
             <div>
                 <header className={styles.header}>
-                    NodeJS论坛
+                    <div className={styles.title}>NodeJS论坛</div>
                     <div>
-                        <a>
-                            <ul>
-                                {this.props.tabs.map((tab,i)=>{
-                                    return <Tab tab={tab} key={'myKey'+i}></Tab>
-                                })}
-                            </ul>
-                        </a>
+                        <ul onClick={this.handlerChange.bind(this)}>
+                            {this.props.tabs.map((tab,i)=>{
+                                return <Tab tab={tab} key={'myKey'+i} select={this.state.select}></Tab>
+                            })}
+                        </ul>
                     </div>
                 </header>
 

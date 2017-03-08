@@ -1,5 +1,4 @@
 .header{
-  font-size: 1.5rem;
   text-align: center;
   overflow: hidden;
   position: fixed;
@@ -7,8 +6,25 @@
   left: 0;
   width: 100%;
   z-index: 10;
+  background: #f6f6f6;
+  color: #80bd01;
+}
+.title{
   height:3rem;
   line-height: 3rem;
-  background: #f6f6f6;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #fff;
 }
 
+.titleli{
+  width: 20%;
+  display: inline-block;
+  line-height: 2rem;
+  height: 2rem;
+  color:#80bd01;
+}
+
+.selected{
+  background: #80bd01;
+  color:#fff;
+}
