@@ -1,11 +1,6 @@
-const login = (state = {succeed: false}, action) => {
-    switch (action.type) {
-        case 'LOGIN_SUCCESS':
-            return {...state,succecd:true};
-        default:
-            return state
-    }
-};
+import { combineReducers } from 'redux'
+import homePage from './reducers/homePage'
 
 
-export default login;
+const rootReducer = combineReducers({homePage});
+export default rootReducer;
