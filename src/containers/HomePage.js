@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Header from '../components/HomePage/Header/header';
 import Lists from '../components/HomePage/Lists/lists';
-import {selectTab} from '../actions';
+import {selectTab,fetchItems} from '../actions';
 
 class HomePage extends Component {
     constructor(props) {
@@ -33,17 +33,24 @@ class HomePage extends Component {
         }
     ];
 
-    handleClick(tab){
+    componentWillMount(){
         const {dispatch,selectedTab} = this.props;
-        dispatch(selectTab(tab));
+        dispatch(fetchItems(selectedTab));
+    }
+
+    handleClick(tab){
+        const {dispatch} = this.props;
         console.log(this);
+        dispatch(selectTab(tab));
+        dispatch(fetchItems(tab));
     }
 
     render() {
+        console.log(this.props.tabData);
         return (
             <div>
                 <Header onClick={this.handleClick.bind(this)} tabs={this.tabs} />
-                <Lists ></Lists>
+                <Lists items={this.props.tabData.items}></Lists>
             </div>
         )
     }
@@ -51,8 +58,8 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
     const {homePage} = state;
-    const {selectedTab} = homePage;
-    return {selectedTab}
+    const {selectedTab,tabData} = homePage;
+    return {selectedTab,tabData}
 }
 
 export default connect(mapStateToProps)(HomePage);

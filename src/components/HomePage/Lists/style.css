@@ -10,13 +10,22 @@
     box-sizing: border-box;
     position: relative;
     text-decoration: none;
-    color: #000; }
+    color: #000;
+    overflow-x: hidden; }
     .container .content .top {
       background: #80bd01;
       color: #fff;
       border-radius: 0.25rem;
       padding: 0.15rem;
       position: absolute; }
+    .container .content .queans {
+      background: #e5e5e5;
+      color: #999;
+      font-size: 0.75rem;
+      border-radius: 0.2rem;
+      padding: 0.15rem;
+      position: absolute;
+      margin-top: 0.1rem; }
     .container .content .title {
       margin-left: 2.5rem;
       display: block;

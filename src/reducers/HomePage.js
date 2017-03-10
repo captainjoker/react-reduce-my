@@ -31,7 +31,7 @@ const homepage = (state={selectedTab:'all',tabData:{}},action) => {
     if(state){
         const _selectedTab = selectedTab(state.selectedTab,action);
         const _tabItem = tabItem(state.tabData,action);
-        return {...state,selectedTab:_selectedTab,tabItem:_tabItem}
+        return {...state,selectedTab:_selectedTab,tabData:_tabItem}
     }
     return state;
 };
