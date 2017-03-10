@@ -9,9 +9,7 @@ class Content extends Component{
         super(props);
     }
 
-    handlerClick(){
-        history.back();
-    }
+
 
     render(){
         return (

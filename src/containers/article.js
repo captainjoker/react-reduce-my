@@ -9,6 +9,10 @@ class Article extends Component{
         super(props);
     }
 
+    handlerClick(){
+        history.back();
+    }
+
     componentWillMount(){
         if(!this.props.article.data.content){
             var id = window.location.hash.match(/.*\/(.*)/);
