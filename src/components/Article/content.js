@@ -16,10 +16,7 @@ class Content extends Component{
     render(){
         return (
             <div>
-                <header className={styles.header}>
-                    <div className={styles.back} onClick={this.handlerClick}></div>
-                    详情
-                </header>
+
                 <div className={`${styles.content} markdown-body`} dangerouslySetInnerHTML={{__html:this.props.myhtml}}>
                 </div>
             </div>
