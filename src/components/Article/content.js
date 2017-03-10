@@ -9,14 +9,18 @@ class Content extends Component{
         super(props);
     }
 
+    handlerClick(){
+        history.back();
+    }
+
     render(){
         return (
             <div>
                 <header className={styles.header}>
-                    <div className={styles.back}></div>
+                    <div className={styles.back} onClick={this.handlerClick}></div>
                     详情
                 </header>
-                <div className={styles.content} dangerouslySetInnerHTML={{__html:this.props.myhtml}}>
+                <div className={`${styles.content} markdown-body`} dangerouslySetInnerHTML={{__html:this.props.myhtml}}>
                 </div>
             </div>
         )

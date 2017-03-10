@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Content from '../components/Article/content';
+import {fetchArticle} from '../actions'
 
 class Article extends Component{
     constructor(props){
         super(props);
     }
 
-
+    componentWillMount(){
+        if(!this.props.article.data.content){
+            var id = window.location.hash.match(/.*\/(.*)/);
+            id && id[1] && this.props.dispatch(fetchArticle(id[1]));
+        }
+    }
 
     render(){
         return (
