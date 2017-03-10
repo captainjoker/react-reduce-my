@@ -12,7 +12,9 @@ class Lists extends Component{
         return (
             <div className={styles.container}>
                 {this.props.items && this.props.items.map((data,index)=>{
-                    return <Link to={'/topic/${id}'} className={styles.contentLink} key={'listkey'+index}>
+                    return <Link to={`article/${data.id}`} className={styles.contentLink} key={`listkey${index}`} onClick={()=>{
+                        this.props.onClick(data.id);
+                    }}>
                         <div className={styles.content}>
                             <img src={data.author.avatar_url} alt="" className={styles.userlogo}/>
                             <div>
