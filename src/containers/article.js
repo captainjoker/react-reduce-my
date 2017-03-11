@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Content from '../components/article/content/content';
+import Reply from '../components/article/reply/reply';
 import {fetchArticle} from '../actions'
 
 class Article extends Component{
@@ -22,6 +23,9 @@ class Article extends Component{
             <div>
                 <Content mydata={data} myhtml={data.content}>
                 </Content>
+                <Reply replyData={data.replies} replyCount={data.reply_count}>
+
+                </Reply>
             </div>
         )
     }
