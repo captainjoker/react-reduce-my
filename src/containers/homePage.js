@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Header from '../components/HomePage/Header/header';
-import Lists from '../components/HomePage/Lists/lists';
+import Header from '../components/homePage/Header/header';
+import Lists from '../components/homePage/Lists/lists';
 import {selectTab, fetchItems, fetchArticle} from '../actions';
 
 class HomePage extends Component {

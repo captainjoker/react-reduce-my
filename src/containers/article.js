@@ -1,17 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Content from '../components/Article/content';
+import Content from '../components/article/content/content';
 import {fetchArticle} from '../actions'
-import styles from '../components/Article/style.scss';
 
 class Article extends Component{
     constructor(props){
         super(props);
     }
 
-    handlerClick(){
-        history.back();
-    }
 
     componentWillMount(){
         if(!this.props.article.data.content){
@@ -24,14 +20,7 @@ class Article extends Component{
         const data = this.props.article.data;
         return (
             <div>
-                <header className={styles.header}>
-                    <div className={styles.back} onClick={this.handlerClick}></div>
-                    详情
-                </header>
-                <div className={styles.authorInfo}>
-                    {data.title}
-                </div>
-                <Content myhtml={data.content}>
+                <Content mydata={data} myhtml={data.content}>
                 </Content>
             </div>
         )
