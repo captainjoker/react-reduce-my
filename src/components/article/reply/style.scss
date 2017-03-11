@@ -9,6 +9,13 @@
   }
   .replyContent{
     padding:0 1rem;
+    .author{
+      margin:1rem 0;
+      img{
+        width:2rem;
+        height:2rem;
+      }
+    }
   }
 
 }
