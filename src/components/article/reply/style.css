@@ -1,0 +1,17 @@
+.reply {
+  margin: 1rem auto;
+  width: 100%; }
+  .reply .replyCount {
+    background: #f6f6f6;
+    height: 2rem;
+    line-height: 2rem;
+    padding-left: 1rem; }
+  .reply .replyContent {
+    padding: 0 1rem; }
+    .reply .replyContent .author {
+      margin: 1rem 0; }
+      .reply .replyContent .author img {
+        width: 2rem;
+        height: 2rem; }
+
+/*# sourceMappingURL=style.css.map */

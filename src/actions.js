@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 export const SELECT_TAB = 'SELECT_TAB';
 export const RECEIVE_TOPICS = 'RECEIVE_TOPICS';
 export const RECEIVE_ARTICLE = 'RECEIVE_ARTICLE';
+export const REQUEST_TOPICS = 'REQUEST_TOPICS';
 
 export const selectTab = tab => ({
     type: SELECT_TAB,
@@ -17,8 +18,13 @@ export const receiveTopics = (tab, items, page, limit) => ({
     limit
 });
 
+export const requestTopics = ()=>({
+    type:REQUEST_TOPICS
+});
+
 export const fetchItems = (tab, page = 1, limit = 20) => {
     return dispatch => {
+        dispatch(requestTopics);
         fetch(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=${limit}`)
             .then(response => response.json())
             .then(json => dispatch(receiveTopics(tab, json.data, page, limit)))

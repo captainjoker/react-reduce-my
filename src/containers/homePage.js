@@ -7,7 +7,6 @@ import {selectTab, fetchItems, fetchArticle} from '../actions';
 class HomePage extends Component {
     constructor(props) {
         super(props);
-
     }
 
     tabs = [
@@ -33,15 +32,38 @@ class HomePage extends Component {
         }
     ];
 
+    scrolling(e) {
+        if (document.body.clientHeight === document.body.scrollTop + document.documentElement.clientHeight) {
+            const {dispatch, selectedTab, tabData} = this.props;
+            if(!tabData.isFetching){
+                dispatch(fetchItems(selectedTab, ++tabData.page));
+            }
+        }
+
+    }
+
+    componentWillUnmount() {
+        // window.removeEventListener('scroll', this.scrolling);
+        window.onscroll = null;
+    }
+
     componentWillMount() {
-        const {dispatch, selectedTab} = this.props;
-        dispatch(fetchItems(selectedTab));
+        const {dispatch, selectedTab,tabData} = this.props;
+        if(!tabData.items || !tabData.items.length){
+            dispatch(fetchItems(selectedTab));
+        }
+        // window.addEventListener('scroll', this.scrolling);
+        window.onscroll = this.scrolling.bind(this);
     }
 
     handleClick(tab) {
+        if (tab === this.props.selectedTab) {
+            return false;
+        }
         const {dispatch} = this.props;
         dispatch(selectTab(tab));
         dispatch(fetchItems(tab));
+        document.body.scrollTop = 0;
     }
 
     contentHandlerClick(id) {
@@ -49,10 +71,9 @@ class HomePage extends Component {
     }
 
     render() {
-        console.log(this.props.tabData);
         return (
             <div>
-                <Header onClick={this.handleClick.bind(this)} tabs={this.tabs}/>
+                <Header onClick={this.handleClick.bind(this)} tabs={this.tabs} select={this.props.selectedTab}/>
                 <Lists items={this.props.tabData.items} onClick={this.contentHandlerClick.bind(this)}>
 
                 </Lists>

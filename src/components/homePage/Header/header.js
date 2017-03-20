@@ -6,7 +6,7 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            select : 'all'
+            select : this.props.select || 'all'
         };
     }
 

@@ -11,6 +11,7 @@ class Article extends Component{
 
 
     componentWillMount(){
+        document.body.scrollTop = 0;
         if(!this.props.article.data.content){
             var id = window.location.hash.match(/.*\/(.*)/);
             id && id[1] && this.props.dispatch(fetchArticle(id[1]));
